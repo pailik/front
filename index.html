@@ -3,9 +3,8 @@ layout: default
 title: rere
 ---
 <article class="it-poster" data-ng-controller="signupCtrl as signup">
-    <div class="row">
+    <div class="row" data-ng-init="signup.activate()">
         <section class="large-12 small-12 columns main-content"
-                 data-ng-init="signup.activate()"
                  data-ng-if="!signup.code">
             <h3>
                 <a id="welcome-to-github-pages" class="anchor"
