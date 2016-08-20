@@ -11,7 +11,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
         if ($location.search().hasOwnProperty('code')) {
             this.code = true;
             var token = $location.search()['code'];
-            $http.get('http://api.kubikvest.xyz/token/' + code);
+            $http.get('http://api.kubikvest.xyz/token/' + token);
         }
     }
 }]);
