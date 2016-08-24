@@ -31,7 +31,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
             var data = $http.get('http://api.kubikvest.xyz/auth?code=' + code).then(function (res) {
                 return res.data;
             });
-            console.log(data.value);
+            console.log(data.links);
         }
     }
 }]);
