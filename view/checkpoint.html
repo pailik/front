@@ -1,0 +1,27 @@
+<div class="row" data-ng-init="ctrl.checkpoint()">
+    <div class="text-center callout secondary"
+         data-ng-if="ctrl.task.error">
+        <p>{| ctrl.task.error |}</p>
+        <h4 class="subheader">попытайтесь еще раз</h4>
+        <p>{| ctrl.task.description |}</p>
+        <div class="text-center">
+            <a class="raised-button ink large button"
+               href="{| ctrl.task.links.task |}">Я на месте</a>
+        </div>
+    </div>
+    <section class="large-12 small-12 columns card end"
+             data-ng-if="!ctrl.task.error">
+        <h2 class="text-headline">sdffg!</h2>
+        <p>{| ctrl.task.description|}</p>
+        <div class="text-center"
+             data-ng-if="!ctrl.task.links.finish">
+            <a class="raised-button ink large button"
+               href="{| ctrl.task.links.task |}">Я на месте</a>
+        </div>
+        <div class="text-center"
+             data-ng-if="ctrl.task.links.finish">
+            <a class="raised-button ink large button"
+               href="{| ctrl.task.links.finish |}">Мои результаты</a>
+        </div>
+    </section>
+</div>

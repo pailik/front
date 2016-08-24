@@ -1,6 +1,10 @@
-<article data-ng-controller="taskCtrl as task">
-    <div class="row" data-ng-init="task.token()">
-        TAsk
+<div class="row" data-ng-init="ctrl.getTask()">
+    <section class="large-12 small-12 columns card end">
+        <h2 class="text-headline">sdffg!</h2>
+        <p>{| ctrl.task.description |}</p>
+    </section>
+    <div class="text-center">
+        <a class="raised-button ink large button"
+           href="{| ctrl.task.links.checkpoint |}">Я на месте</a>
     </div>
-
-</article>
+</div>

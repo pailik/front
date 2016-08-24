@@ -18,6 +18,9 @@ kubikApp.config([
         .state('task', {
             url: '/task',
             templateUrl: "view/task.html"
+        }).state('checkpoint', {
+            url: '/checkpoint',
+            templateUrl: "view/checkpoint.html"
         });
         $urlRouterProvider.otherwise('/');
     }
@@ -29,7 +32,6 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
             this.code = true;
             var code = $location.search()['code'];
             $http.get('http://api.kubikvest.xyz/auth?code=' + code).then(function (res) {
-                console.log(22);
                 window.location = res.data.links.task;
             });
 
@@ -38,10 +40,24 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 }]);
 
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
-    this.token = function () {
+    this.getTask = function () {
         if ($location.search().hasOwnProperty('t')) {
             var token = $location.search()['t'];
-            $http.get('http://api.kubikvest.xyz/token?t=' + token);
+            $http.get('http://api.kubikvest.xyz/task?t=' + token).then(function (res) {
+                this.task = res.data;
+            }.bind(this));
+        }
+    }
+}]);
+
+kubikApp.controller('pointCtrl', ['$http', '$location', function ($http, $location) {
+    this.checkpoint = function () {
+        if ($location.search().hasOwnProperty('t')) {
+            var token = $location.search()['t'];
+            var coords = $location.search()['c'];
+            $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + coords).then(function (res) {
+                this.task = res.data;
+            }.bind(this));
         }
     }
 }]);
