@@ -28,10 +28,12 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
         if ($location.search().hasOwnProperty('code')) {
             this.code = true;
             var code = $location.search()['code'];
-            var data = $http.get('http://api.kubikvest.xyz/auth?code=' + code).then(function (res) {
-                return res.data;
+            $http.get('http://api.kubikvest.xyz/auth?code=' + code).then(function (res) {
+                console.log(1111);
+                console.log(res.data);
+                console.log(res.data.links);
             });
-            console.log(data.links);
+
         }
     }
 }]);
