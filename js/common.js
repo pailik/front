@@ -57,7 +57,7 @@ kubikApp.controller('pointCtrl', ['$http', '$location', function ($http, $locati
 
         if ($location.search().hasOwnProperty('t')) {
             var token = $location.search()['t'];
-            $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + lat + ',' + 'lng').then(function (res) {
+            $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + lat + ',' + lng).then(function (res) {
                 this.task = res.data;
             }.bind(this));
         }
