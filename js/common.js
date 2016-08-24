@@ -56,12 +56,12 @@ kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $locatio
             var token = $location.search()['t'];
             $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + lat + ',' + lng).then(function (res) {
                 this.task = res.data;
+                $location.path('/task?t=' + token);
             }.bind(this));
         }
     }
 
     this.checkpoint = function () {
-        console.log(1111);
         if (navigator.geolocation) navigator.geolocation.getCurrentPosition(this.onPositionUpdate.bind(this));
     };
 }]);
