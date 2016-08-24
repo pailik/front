@@ -40,6 +40,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
     this.getTask = function () {
+        console.log('getTask');
         if ($location.search().hasOwnProperty('t')) {
             var token = $location.search()['t'];
             $http.get('http://api.kubikvest.xyz/task?t=' + token).then(function (res) {
@@ -56,12 +57,14 @@ kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $locatio
             var token = $location.search()['t'];
             $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + lat + ',' + lng).then(function (res) {
                 this.task = res.data;
+                console.log('/task?t=');
                 $location.path('/task?t=' + token);
             }.bind(this));
         }
     }
 
     this.checkpoint = function () {
+        console.log('checkpoint');
         if (navigator.geolocation) navigator.geolocation.getCurrentPosition(this.onPositionUpdate.bind(this));
     };
 }]);
