@@ -58,7 +58,9 @@ kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $locatio
             $http.get('http://api.kubikvest.xyz/checkpoint?t=' + token + '&c=' + lat + ',' + lng).then(function (res) {
                 this.task = res.data;
                 console.log(this.task);
-                $location.path('task');
+                if (!this.task.finish) {
+                    $location.path('task');
+                }
             }.bind(this));
         }
     }
