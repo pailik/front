@@ -11,12 +11,24 @@
     </div>
     <section class="large-12 small-12 columns card end"
              data-ng-if="!ctrl.task.error">
-        <h2 class="text-headline">Секунду!</h2>
-        <p>Проверим не потерялись ли вы.</p>
-        <div class="text-center"
-             data-ng-if="ctrl.task.links.finish">
-            <a class="raised-button ink large button"
-               href="{| ctrl.task.links.finish |}">Мои результаты</a>
+
+
+        <div data-ng-if="!ctrl.task.links.finish">
+            <h2 class="text-headline">Секунду!</h2>
+            <p>Проверим не потерялись ли вы.</p>
         </div>
+
+        <div data-ng-if="ctrl.task.links.finish">
+            <h2 class="text-headline">Молодец!</h2>
+            <p>Возьми с полки пирог.</p>
+            <div class="text-center"
+                 data-ng-if="ctrl.task.links.finish">
+                <a class="raised-button ink large button"
+                   href="{| ctrl.task.links.finish |}">Мои результаты</a>
+            </div>
+        </div>
+
+
+
     </section>
 </div>
