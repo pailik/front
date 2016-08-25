@@ -20,6 +20,9 @@ kubikApp.config([
         }).state('checkpoint', {
             url: '/checkpoint',
             templateUrl: "view/checkpoint.html"
+        }).state('finish', {
+            url: '/finish',
+            templateUrl: "view/finish.html"
         });
         $urlRouterProvider.otherwise('/');
     }
@@ -40,7 +43,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
     this.finish = false;
-    console.log('build:11');
+    console.log('build:3');
     this.getTask = function () {
         if ($location.search().hasOwnProperty('t')) {
             console.log('getTask');
