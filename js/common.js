@@ -41,7 +41,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
     this.getTask = function () {
         console.log('getTask');
-        if ($location.search().hasOwnProperty('t')) {
+        if ($location.search().hasOwnProperty('t') && !this.task.finish) {
             var token = $location.search()['t'];
             $http.get('http://api.kubikvest.xyz/task?t=' + token).then(function (res) {
                 this.task = res.data;
