@@ -40,7 +40,7 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
     this.finish = false;
-    console.log(this.finish);
+    console.log('build:11');
     this.getTask = function () {
         if ($location.search().hasOwnProperty('t')) {
             console.log('getTask');
