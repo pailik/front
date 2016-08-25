@@ -3,12 +3,13 @@
         <h2 class="text-headline">{| ctrl.task.title |}</h2>
         <p>{| ctrl.task.description |}</p>
     </section>
-    <div class="text-center">
+    <div class="text-center"
+         data-ng-if="!ctrl.task.finish">
         <a class="raised-button ink large button"
            href="{| ctrl.task.links.checkpoint |}">Я на месте</a>
     </div>
     <div class="text-center"
-         data-ng-if="ctrl.task.links.finish">
+         data-ng-if="ctrl.task.finish">
         <a class="raised-button ink large button"
            href="{| ctrl.task.links.finish |}">Мои результаты</a>
     </div>
