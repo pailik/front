@@ -39,8 +39,10 @@ kubikApp.controller('signupCtrl', ['$http', '$location', function ($http, $locat
 }]);
 
 kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $location) {
+    this.finish = false;
+    console.log(this.finish);
     this.getTask = function () {
-        if ($location.search().hasOwnProperty('t') && !this.task.finish) {
+        if ($location.search().hasOwnProperty('t')) {
             console.log('getTask');
             var token = $location.search()['t'];
             $http.get('http://api.kubikvest.xyz/task?t=' + token).then(function (res) {
@@ -60,6 +62,8 @@ kubikApp.controller('taskCtrl', ['$http', '$location', function ($http, $locatio
                 console.log(this.task);
                 if (!this.task.finish) {
                     $location.path('task');
+                } else {
+                    this.finish = true;
                 }
             }.bind(this));
         }
